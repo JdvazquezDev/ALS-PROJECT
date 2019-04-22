@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en-es">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>POKERNEWS</title>
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+  <link rel="stylesheet" href="styles/template.css">
+  <script src="main.js"></script>
+</head>
+
+<body>
+  <div class="page-content">
+    <div class="navbar">
+      <div class="logo">
+
+
+      </div>
+      <a class="btn">
+        <span></span>
+        <span></span>
+        <span></span>
+      </a>
+      <div class="menu">
+        <a href="#">Home</a>
+        <a href="#">About</a>
+        <a href="#">Blog</a>
+        <a href="#">
+          &#128113; Login
+        </a>
+        <a onclick="goBack()">Go back</a>
+
+      </div>
+    </div>
+    <div class="header"></div>
+    <div include-html="main.html"></div>
+  </div>
+  <footer>
+    PokerNews &copy; 2019
+  </footer>
+  <script type="text/javascript">
+    showResponsiveMenu();
+    includeHTML();
+
+  </script>
+</body>
+
+</html>
