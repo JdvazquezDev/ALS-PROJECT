@@ -1,22 +1,23 @@
-import webapp2
-import jinja2
-from google.appengine.ext import ndb
-from google.appengine.api import users
-from model.usuario import Usuario
 
+import webapp2
+
+from webapp2_extras import jinja2
+
+from google.appengine.api import users
+import model.usuario as usuario
 
 class BienvenidoHandler(webapp2.RequestHandler):
 
   def get(self):
-    user = users.get_current_user()
-    usr_info = Usuario.retrieve(user)
+    Usuario = users.get_current_user()
+    usr_info = usuario.devolver(Usuario)
 
-    if user and usr_info:
+    if Usuario and usr_info:
       self.redirect("/verEntradas")
       return
     else:
-      usr_info = Usuario.create_empty_user()
-      usr_info.nick = "Login"
+      usr_info = usuario.create_empty_user()
+      usr_info.log = "Login"
       access_link = users.create_login_url("/verEntradas")
 
     template_values = {
@@ -25,7 +26,7 @@ class BienvenidoHandler(webapp2.RequestHandler):
     }
 
     jinja = jinja2.get_jinja2(app=self.app)
-    self.response.write(jinja.render_template("template.html", **template_values))
+    self.response.write(jinja.render_template("index.html", **template_values))
 
 
 app = webapp2.WSGIApplication([

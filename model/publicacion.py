@@ -1,4 +1,4 @@
-# Publicación
+# Publicacion
 from google.appengine.ext import ndb
 
 
