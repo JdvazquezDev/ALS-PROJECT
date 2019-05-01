@@ -5,28 +5,40 @@ api_version: 1
 threadsafe: yes
 
 handlers:
-- url: /favicon\.ico
-  static_files: favicon.ico
-  upload: favicon\.ico
+  - url: /favicon\.ico
+    static_files: favicon.ico
+    upload: favicon\.ico
 
-- url: /
-  script: handlers.bienvenido.app
+  - url: /
+    script: handlers.bienvenido.app
 
-- url: /verEntradas
-  script: handlers.verEntradas.app
-  login: required
+  - url: /verEntradas
+    script: handlers.verEntradas.app
+    login: required
+
+  - url: /publicaciones/verPublicacion
+    script: handlers.publicaciones.verPublicacion.app
+    login: required
+
+  - url: /publicaciones/modificarPublicacion
+    script: handlers.publicaciones.modificarPublicacion.app
+    login: required
+
+  - url: /publicaciones/eliminarPublicacion
+    script: handlers.publicaciones.eliminarPublicacion.app
+    login: required
 
 
-- url: /templates
-  static_dir: templates
-  application_readable: true
+  - url: /templates
+    static_dir: templates
+    application_readable: true
 
-- url: /res
-  static_dir: res
+  - url: /res
+    static_dir: res
 
 libraries:
-- name: webapp2
-  version: latest
+  - name: webapp2
+    version: latest
 
-- name: jinja2
-  version: latest
+  - name: jinja2
+    version: latest

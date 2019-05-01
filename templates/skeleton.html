@@ -8,46 +8,49 @@
   <title>POKERNEWS</title>
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
   <link rel="stylesheet" href="templates/template.css">
-  <script src="/main.js"></script>
+  <script src="templates/main.js"></script>
 </head>
 
 <body>
-  <div class="page-content">
-    <div class="navbar">
+<div class="page-content">
+  <div class="navbar">
+
+    <a href="/verEntradas">
       <div class="logo">
 
-
       </div>
-      <a class="btn">
-        <span></span>
-        <span></span>
-        <span></span>
+    </a>
+
+
+    <a class="btn">
+      <span></span>
+      <span></span>
+      <span></span>
+    </a>
+    <div class="menu">
+      <a href="/verEntradas">Home</a>
+      <a href="#">About</a>
+      <a href="{{ access_link }}">
+        &#128113; {{ usr_info.log }}
       </a>
-      <div class="menu">
-        <a href="#">Home</a>
-        <a href="#">About</a>
-        <a href="#">Blog</a>
-        <a href="{{access_link}}">
-          &#128113; {{usr_info.log}}
-        </a>
-        <a onclick="goBack()">Go back</a>
+      <a style="cursor: pointer;" onclick="goBack()">Go back</a>
 
-      </div>
-    </div>
-    <div class="header"></div>
-    <div id="dvContents">
-        {% block content %}
-        {% endblock %}
     </div>
   </div>
-  <footer>
-    PokerNews &copy; 2019
-  </footer>
-  <script>
-    showResponsiveMenu();
-    includeHTML();
+  <div class="header"></div>
+  <div id="dvContents">
+    {% block content %}
+    {% endblock %}
+  </div>
+</div>
+<footer>
+  PokerNews &copy; 2019
+</footer>
+<script>
+  showResponsiveMenu();
+  includeHTML();
 
-  </script>
+</script>
 </body>
 
 </html>

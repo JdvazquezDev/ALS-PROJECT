@@ -1,14 +1,14 @@
 import webapp2
 from webapp2_extras import jinja2
 from google.appengine.api import users
-from google.appengine.ext import ndb
+
 
 from model.publicacion import Publicacion
 import model.usuario as usuario
 
 
 
-class verEntradas(webapp2.RedirectHandler):
+class verEntradasHandler(webapp2.RedirectHandler):
   def get(self):
     Usuario = users.get_current_user()
     usr_info = usuario.devolver(Usuario)
@@ -26,5 +26,5 @@ class verEntradas(webapp2.RedirectHandler):
     self.response.write(jinja.render_template("verEntradas.html", **template_values))
 
 app = webapp2.WSGIApplication([
-  ('/verEntradas', verEntradas),
+  ('/verEntradas', verEntradasHandler),
   ], debug=True)
