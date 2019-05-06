@@ -1,0 +1,20 @@
+{% extends "skeleton.html" %}
+{% block content %}
+
+  <p>BORRAR PUBLICACION</p>
+    <form
+          action="/publicaciones/eliminarPublicacion?publicacion_id={{ publicacion.key.urlsafe() }}"
+          method="post">
+      <p>
+        {% include "verPublicacion.html" %}
+      </p>
+
+      <p>CUIDADO! Se dispone a eliminar una publicación permanentemente </p>
+      <input type="submit"
+             value="Eliminar publicación"
+             class="button"
+             title="eliminarPublicacion" alt="eliminarPublicacion"
+
+      />
+    </form>
+{% endblock %}

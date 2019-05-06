@@ -1,0 +1,25 @@
+{% extends "skeleton.html" %}
+{% block content %}
+  <div class="section">
+
+    <div class="posts" >
+      {% for publicacion in publicaciones %}
+        <a style="text-decoration: none; color:black;" href="/publicaciones/verPublicacion?publicacion_id={{ publicacion.key.urlsafe() }}">
+          <div class="post card">
+            <img src="{{ publicacion.url }}" alt="">
+            <h3>{{ publicacion.titulo }}</h3>
+            <p>{{ publicacion.descripcion }}</p>
+          </div>
+        </a>
+      {% else %}
+            No hay publicaciones.
+      {% endfor %}
+    </div>
+   </a>
+    </div>
+  </div>
+
+
+  </div>
+{% endblock %}
+

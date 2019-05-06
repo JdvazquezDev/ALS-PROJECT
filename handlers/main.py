@@ -15,11 +15,21 @@
 # limitations under the License.
 #
 import webapp2
+from google.appengine.ext import ndb
+from google.appengine.api import users
+import jinja2
+import model.publicacion as publicacion
+
 
 class MainHandler(webapp2.RequestHandler):
-    def get(self):
-        self.response.write('Hello world!')
+  def post(self):
+    usr = users.users.get_current_user()
+
+    if usr:
+      login_url = users.users.create_logout_url()
+    else:
+      login_url = users.users.create_login_url()
 
 app = webapp2.WSGIApplication([
-    ('/', MainHandler)
+  ('/', MainHandler)
 ], debug=True)

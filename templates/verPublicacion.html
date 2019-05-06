@@ -1,0 +1,18 @@
+<head>
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+  <link rel="stylesheet" href="../templates/template.css">
+  <script src="templates/main.js"></script>
+</head>
+{% extends "skeleton.html" %}
+{% block content %}
+
+  <div class="section">
+    <div class="see_post">
+      <img src="{{ publicacion.url }}">
+      <h3>{{ publicacion.titulo }}</h3>
+      <p>{{ publicacion.descripcion }}</p>
+    </div>
+    <a style="text-align: center;" href="/publicaciones/eliminarPublicacion?publicacion_id={{ publicacion.key.urlsafe() }}"><button>ELIMINAR PUBLICACIÓN</button></a>
+  </div>
+
+{% endblock %}

@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en-es">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>POKERNEWS</title>
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+  <link rel="stylesheet" href="templates/template.css">
+  <script src="templates/main.js"></script>
+</head>
+
+<body>
+<div class="page-content">
+  <div class="navbar">
+
+    <a href="/verEntradas">
+      <div class="logo">
+
+      </div>
+    </a>
+
+
+    <a class="btn">
+      <span></span>
+      <span></span>
+      <span></span>
+    </a>
+    <div class="menu">
+      <a href="/verEntradas">Entradas</a>
+      <a href="/publicaciones/anhadirPublicacion">Crear entrada</a>
+      <a href="{{ access_link }}">
+        &#128113; {{ usr_info.log }}
+      </a>
+      <a style="cursor: pointer;" onclick="goBack()">Volver atrás</a>
+
+    </div>
+  </div>
+  <div class="header"></div>
+  <div id="dvContents">
+    {% block content %}
+    {% endblock %}
+  </div>
+</div>
+<footer>
+  PokerNews &copy; 2019
+</footer>
+<script>
+  showResponsiveMenu();
+  includeHTML();
+
+</script>
+</body>
+
+</html>
