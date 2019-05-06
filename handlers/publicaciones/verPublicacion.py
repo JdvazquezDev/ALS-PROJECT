@@ -9,11 +9,17 @@ import model.usuario as usuario
 
 class VerPublicacionHandler(webapp2.RequestHandler):
   def get(self):
+    try:
+      id = self.request.GET['publicacion_id']
+    except KeyError:
+      self.redirect("/error")
+      return
+
     user = users.get_current_user()
     usr_info = usuario.devolver(user)
 
     if user and usr_info:
-
+      usr_info.log = "LogOut"
       access_link = users.create_logout_url("/")
       try:
         publicacion = ndb.Key(urlsafe=id).get()

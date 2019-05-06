@@ -1,4 +1,49 @@
+<head>
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+  <link rel="stylesheet" href="../templates/template.css">
+  <script src="templates/main.js"></script>
+</head>
 {% extends "skeleton.html" %}
 {% block content %}
-  <h1>Modificar publicación</h1>
+
+
+  <div class="section">
+    <div class="see_post">
+      <img src="{{ publicacion.url }}">
+      <h3>{{ publicacion.titulo }}</h3>
+      <p>{{ publicacion.descripcion }}</p>
+    </div>
+
+    <div class="modificar">
+      <h1>MODIFICAR PUBLICACIÓN</h1>
+      <form
+            action="/publicaciones/modificarPublicacion?publicacion_id={{ publicacion.key.urlsafe() }}" method="post">
+        <p>
+          <b><label for="edTitulo">Titulo</label></b>
+          <br>
+          <input type="text" name="titulo" id="edTitulo" size="80"
+                 value="{{ publicacion.titulo }}"
+                 style="border:none;background-color:lightgray"/>
+          <br/>
+          <b><label for="edDescripcion">Descripción</label></b>
+          <br>
+          <textarea name="descripcion" id="edDescripcion" placeholder="Escribe la descripción de la entrada"
+                    rows="10" cols="80"
+                    style="border:none;background-color:lightgray">{{ publicacion.descripcion }}</textarea>
+
+          <br/>
+          <b><label for="edUrl">Url</label></b>
+          <br>
+          <input type="text" name="url" id="edUrl" size="80"
+                 value="{{ publicacion.url }}"
+                 style="border:none;background-color:lightgray"/>
+          <br/>
+        <p>
+          <input type="submit" value="Modificar" title="modificar" alt="modificar"
+          />
+        </p>
+      </form>
+    </div>
+  </div>
+
 {% endblock %}

@@ -5,12 +5,15 @@ from webapp2_extras import jinja2
 
 from google.appengine.api import users
 import model.usuario as usuario
+import model.publicacion as publicacion
 
 class BienvenidoHandler(webapp2.RequestHandler):
 
   def get(self):
     Usuario = users.get_current_user()
     usr_info = usuario.devolver(Usuario)
+
+
 
     if Usuario and usr_info:
       self.redirect("/verEntradas")
